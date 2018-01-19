@@ -1,0 +1,22 @@
+{
+  "name": "mock-server",
+  "version": "1.0.0",
+  "description": "mock server for travel app",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "https://kh4nhtc@bitbucket.org/hackathontokyo/mock-server.git"
+  },
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "khanhtc",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "http": "0.0.0",
+    "util": "^0.10.3"
+  }
+}
