@@ -1,5 +1,6 @@
 # Node Api Server ( Seed )
-Simple NodeJS server
+
+[![CodeFactor](https://www.codefactor.io/repository/github/khanhtc1202/node-api-seed/badge)](https://www.codefactor.io/repository/github/khanhtc1202/node-api-seed)
 
 An simple nodejs api server.
 
