@@ -1,5 +1,5 @@
-const BaseSql = require('./sql_model');
+const System = require('./system');
 
 module.exports = {
-    BaseSql,
+    System,
 };

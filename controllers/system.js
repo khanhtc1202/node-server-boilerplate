@@ -1,15 +1,15 @@
 const {
-    BaseSql,
+    System,
 } = require('../models');
 
 class SystemCtrl {
     constructor() {
-        this.baseSql = new BaseSql();
+        this.systemModel = new System();
     }
 
     async ping(req, res, next) {
         try {
-            const sql_connected = await this.baseSql.ping();
+            const sql_connected = await this.systemModel.ping();
             res.status(200).json({
                 "sqlStatus": sql_connected ? "ok" : "ng",
             })
