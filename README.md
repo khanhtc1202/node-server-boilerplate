@@ -4,20 +4,27 @@
 
 An simple nodejs api server.
 
-## Project struct
+## Project structure
 
 ```bash
 .
 ├── app.js
-├── config
-│   ├── express.js
-│   ├── index.js
-│   └── routes.js
+├── router.js
 ├── controllers
-│   └── greeting.js
+│   └── index.js
+│   └── system.js
+├── infras
+│   └── index.js
+│   └── mysql-client.js
 ├── libs
-│   ├── bootstrap.js
-│   └── utils.js
+│   └── index.js
+│   └── middleware.js
+├── models
+│   └── index.js
+│   └── sql_model.js
+├── utils
+│   └── index.js
+│   └── errors.js
 └── package.json
 ```
 
@@ -31,7 +38,7 @@ Install dependence packages by command
 $ npm install
 ```
 
-Install nodemon (optional) on golbal scope in your host machine (flag `-g`) using `npm`
+Install `nodemon` (optional) on golbal scope in your host machine (flag `-g`) using `npm`
 
 Start api server
 
@@ -39,42 +46,23 @@ Start api server
 $ npm start
 ```
 
+or
+
+```bash
+$ npm run dev
+``` 
+
 (if you don't have `nodemon` start server by `node app.js`)
 
-### Create new api endpoint
+### Note
 
-Define your new api on `./controllers/your-controller-name.js`
+Starter kit has `ping` endpoint which test the availability of connection between this node js server and the sql database defined under `$DATABASE_SQL_URL` env var in your shell.
+Please run up a mysql server to make this check pass.
 
-Sample:
+You can startup a mysql server with docker by using docker-compose manifest included in this boilerplate.
 
-```javascript
-module.exports = function(config, utils) {
-    var obj = {};
-    
-    obj.reply = function(req, res, next) {
-        res.status(200).send({ data: "OK" });
-    };
-    
-    return obj;
-};
-```
-
-Declare your new endpoint api on `./config/routes.js`
-
-Sample:
-
-```javascript
-module.exports = function(app, bootstrap, utils) {
-    ...
-
-    // Say hello to the world
-    app.get('/', ctrls["greeting"].reply);
-    
-    ...
-};
-
-```
+```bash
+$ docker-compose up -d --build
+``` 
 
 Done! :)))
-
-Extra configs define on `./config/index.js`
