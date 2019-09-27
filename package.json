@@ -9,6 +9,7 @@
   },
   "scripts": {
     "start": "nodemon app.js",
+    "dev": "DATABASE_SQL_URL=mysql://root:root@localhost:33060/bookichi PORT=3000 DEBUG=knex:query nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "khanhtc",
@@ -17,6 +18,8 @@
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
     "http": "0.0.0",
+    "knex": "^0.19.4",
+    "mysql2": "^1.7.0",
     "util": "^0.10.3"
   }
 }

@@ -1,16 +1,13 @@
-var config = require('./config');
-var express = require('express');
-var bootstrap = require('./libs/bootstrap')(config);
-var utils = require('./libs/utils')(config);
+const express = require('express');
+const router = require('./router');
+const { errorHandler } = require('./libs');
 
-// Create server object
-var app = express();
+// create app
+const app = express();
+app.use(express.json());
+const port = process.env.PORT || 3000;
 
-// Bootstrap
-require('./config/express')(app, config);
-require('./config/routes')(app, bootstrap, utils);
+app.use(router);
+app.use(errorHandler);
 
-// Start server
-app.listen(config.port, function() {
-    console.log('Server running on 127.0.0.1:', config.port);
-});
+app.listen(port, () => console.log(`App listening on port ${port}!`));
